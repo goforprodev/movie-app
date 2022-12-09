@@ -118,7 +118,7 @@ function App() {
             {searchValue}
           </Text>
           <Text color="#000" mb="18px">
-            SHIFT + Wheel - To Scroll sideways
+            SHIFT + Wheel - To Scroll sideways.
           </Text>
           <Box
             scrollBehavior="inside"
@@ -167,7 +167,7 @@ function App() {
             Action
           </Text>
           <Text color="#000" mb="18px">
-            SHIFT + Wheel - To Scroll sideways
+            SHIFT + Wheel - To Scroll sideways.
           </Text>
           <Box
             scrollBehavior="inside"
