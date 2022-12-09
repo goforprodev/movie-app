@@ -1,27 +1,35 @@
 import { useState, useEffect } from "react";
 import { extendTheme } from "@chakra-ui/react";
-import { Center, ChakraProvider, Flex, FormControl, FormLabel, Stack } from "@chakra-ui/react";
+import {
+  Center,
+  ChakraProvider,
+  Flex,
+  FormControl,
+  FormLabel,
+  Stack,
+} from "@chakra-ui/react";
 import { Box, Text, Image, Input, HStack } from "@chakra-ui/react";
 import Logo from "./assets/Logo.svg";
 import HeadImage from "./assets/HeadImage2.jpg";
+import PhoneImg from "./assets/phoneImg.png";
 function App() {
   const [searchValue, setSearchValue] = useState("Harry Potter");
   const [movies, setMovies] = useState([]);
   const [searchedMovies, setSearchedMovies] = useState([]);
 
   // function to get movies
-  async function getMovies(search="Avengers") {
+  async function getMovies(search = "Avengers") {
     const url = `http://www.omdbapi.com/?s=${search}&apikey=ddd1d67b`;
     const response = await fetch(url);
     const responseJson = await response.json();
     return responseJson;
   }
 
-// function to handle search submission
+  // function to handle search submission
   function handleSubmit(e) {
     e.preventDefault();
-    const value = e.target.children[1].value
-    setSearchValue(value)
+    const value = e.target.children[1].value;
+    setSearchValue(value);
   }
 
   // on load
@@ -39,20 +47,25 @@ function App() {
   }, [searchValue]);
 
   // custom breakpoints
-  const breakpoints = {
-    sm:'321px',
-    md:'834px',
-    lg:'1440px',
-  }
+ const breakpoints ={
+  sm: "320px",
+  md: "768px",
+  lg: "960px",
+  xl: "1200px",
+}
 
-  const theme = extendTheme({breakpoints})  
-  
+  const theme = extendTheme({ breakpoints });
+
   return (
     <ChakraProvider theme={theme}>
       <Box width="100%" backgroundColor="#e5e5e5">
         {/* Navbar */}
         <Box
-          pl="77px"
+          pl={{
+            sm: "0px",
+            md: "0px",
+            lg: "77px",
+          }}
           width="100%"
           height={{
             sm: "67px",
@@ -74,21 +87,43 @@ function App() {
         {/* Header */}
         <Box
           width="100%"
-          height="550px"
+          height={{
+            sm: "257px",
+            md: "550px",
+            lg: "550px",
+          }}
           backgroundImage={HeadImage}
           backgroundPosition="center"
           backgroundRepeat="no-repeat"
           backgroundSize="cover"
           display="flex"
           alignItems="center"
-          pl="77px"
+          justifyContent={{
+            sm: "center",
+            md: "center",
+            lg: "flex-start",
+          }}
+          pl={{
+            sm: "0px",
+            md: "0px",
+            lg: "77px",
+          }}
         >
           <Box width="490px">
             <Text
-              fontSize="72px"
+              fontSize={{
+                sm: "28px",
+                md: "72px",
+                lg: "72px",
+              }}
               color="#fff"
               lineHeight="93.74px"
               fontWeight={700}
+              textAlign={{
+                sm: "center",
+                md: "center",
+                lg: "left",
+              }}
             >
               Watch Something Incredible.
             </Text>
@@ -98,17 +133,17 @@ function App() {
         {/* Search component */}
         <Box pl="77px" width="100%" pr="57px">
           <form onSubmit={handleSubmit}>
-          <FormLabel>
-          <Text mt="63px" mb="4px" fontSize="24px" color="#000">
-            Search
-          </Text>
-          </FormLabel>
-          <Input
-            variant="outline"
-            borderColor="#000"
-            borderRadius="none"
-            height="54px"
-          />
+            <FormLabel>
+              <Text mt="63px" mb="4px" fontSize="24px" color="#000">
+                Search
+              </Text>
+            </FormLabel>
+            <Input
+              variant="outline"
+              borderColor="#000"
+              borderRadius="none"
+              height="54px"
+            />
           </form>
         </Box>
 
@@ -174,7 +209,6 @@ function App() {
             overflowX="auto"
             maxWidth="100%"
             display="flex"
-            
             css={{
               "&::-webkit-scrollbar": {
                 width: "4px",
