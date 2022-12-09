@@ -131,7 +131,11 @@ function App() {
         </Box>
 
         {/* Search component */}
-        <Box pl="77px" width="100%" pr="57px">
+        <Box pl={{
+            sm: "28px",
+            md: "28px",
+            lg: "77px",
+        }} width="100%" pr="57px">
           <form onSubmit={handleSubmit}>
             <FormLabel>
               <Text mt="63px" mb="4px" fontSize="24px" color="#000">
@@ -148,7 +152,11 @@ function App() {
         </Box>
 
         {/* Movie category component */}
-        <Box py="48px" width="100%" pl="77px">
+        <Box py="48px" width="100%" pl={{
+            sm: "28px",
+            md: "28px",
+            lg: "77px",
+        }}>
           <Text fontSize="24px" color="#000">
             {searchValue}
           </Text>
@@ -197,7 +205,11 @@ function App() {
         </Box>
 
         {/* second category */}
-        <Box pb="48px" width="100%" pl="77px">
+        <Box pb="48px" width="100%" pl={{
+            sm: "28px",
+            md: "28px",
+            lg: "77px",
+        }}>
           <Text fontSize="24px" color="#000">
             Action
           </Text>
